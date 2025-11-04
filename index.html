@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Juan Fernando Ayala Martínez – Data Engineer & DevOps Engineer based in Bogotá, Colombia.">
+  <title>Juan Fernando Ayala Martínez | Data & DevOps Engineer</title>
+  <style>
+    /* --- CSS INTEGRADO (para un solo archivo) --- */
+    :root {
+      --bg-light: #ffffff;
+      --text-light: #1e293b;
+      --accent: #3b82f6;
+      --border: #e2e8f0;
+      --card-bg: #f8fafc;
+      --shadow: rgba(0,0,0,0.05);
+    }
+
+    [data-theme="dark"] {
+      --bg-light: #0f172a;
+      --text-light: #f1f5f9;
+      --border: #334155;
+      --card-bg: #1e293b;
+      --shadow: rgba(0,0,0,0.2);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg-light);
+      color: var(--text-light);
+      line-height: 1.6;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    header {
+      padding: 1.5rem 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      background: var(--bg-light);
+      z-index: 100;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: var(--accent);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-weight: 500;
+      color: var(--text-light);
+    }
+
+    #theme-toggle {
+      position: fixed;
+      top: 1.25rem;
+      right: 1.25rem;
+      background: none;
+      border: none;
+      font-size: 1.25rem;
+      cursor: pointer;
+      z-index: 101;
+    }
+
+    .hero {
+      min-height: 80vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem 5%;
+      background: linear-gradient(135deg, rgba(59, 130, 246, 0.05) 0%, transparent 100%);
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .tagline {
+      font-size: 1.25rem;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .subtitle {
+      margin-bottom: 1.5rem;
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
+
+    .badges {
+      margin: 1.5rem 0;
+      font-size: 0.95rem;
+      opacity: 0.8;
+    }
+
+    .cta {
+      display: inline-block;
+      background: var(--accent);
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.5rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: transform 0.2s;
+    }
+
+    .cta:hover {
+      transform: translateY(-2px);
+      text-decoration: none;
+    }
+
+    .section {
+      padding: 4rem 5%;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .section h2 {
+      margin-bottom: 2rem;
+      font-size: 1.8rem;
+      position: relative;
+    }
+
+    .section h2::after {
+      content: '';
+      display: block;
+      width: 50px;
+      height: 3px;
+      background: var(--accent);
+      margin-top: 0.5rem;
+    }
+
+    .job, .edu {
+      margin-bottom: 2.5rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .company {
+      font-style: italic;
+      margin-bottom: 0.75rem;
+      color: var(--accent);
+    }
+
+    .achievement {
+      margin-top: 0.75rem;
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    .skills h3 {
+      margin: 1.5rem 0 1rem;
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .skill-tags span {
+      background: var(--card-bg);
+      padding: 0.4rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      border: 1px solid var(--border);
+    }
+
+    .certs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .cert {
+      background: var(--card-bg);
+      padding: 1rem;
+      border-radius: 0.5rem;
+      border: 1px solid var(--border);
+    }
+
+    .contact-info, .contact-links {
+      margin-top: 1.5rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      color: var(--text-light);
+      opacity: 0.7;
+      border-top: 1px solid var(--border);
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+      .hero h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Theme Toggle -->
+  <button id="theme-toggle" aria-label="Toggle dark mode">🌙</button>
+
+  <!-- Header / Navigation -->
+  <header>
+    <div class="nav-logo">JFA</div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#certifications">Certifications</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <h1>Juan Fernando Ayala Martínez</h1>
+      <p class="tagline">Data Engineer & DevOps Engineer</p>
+      <p class="subtitle">Transforming data into intelligent, scalable infrastructure</p>
+      <div class="badges">
+        <span>Azure • Kubernetes • Python • CI/CD • Kafka • MLOps • Power BI</span>
+      </div>
+      <a href="#contact" class="cta">Get in Touch</a>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="section" id="about">
+    <h2>About Me</h2>
+    <p>Electronic Engineer with a Master’s in Information Engineering, specializing in <strong>Data Engineering</strong>, <strong>DevOps</strong>, and <strong>MLOps</strong>. With over 5 years of experience, I design high-availability data pipelines, enforce secure DevSecOps practices, and lead teams to turn raw data into strategic assets.</p>
+    <p>Based in <strong>Bogotá, Colombia</strong>.</p>
+    <div class="contact-info">
+      <p>📧 <a href="mailto:al.araque@javeriana.edu.co">al.araque@javeriana.edu.co</a></p>
+      <p>📱 +57 312 400 0114</p>
+    </div>
+    <div class="skills">
+      <h3>Core Expertise</h3>
+      <div class="skill-tags">
+        <span>Data Engineering</span>
+        <span>ETL/ELT Pipelines</span>
+        <span>Azure & AWS</span>
+        <span>Docker & Kubernetes</span>
+        <span>CI/CD (GitLab)</span>
+        <span>Kafka & REST APIs</span>
+        <span>Linux Infrastructure</span>
+        <span>Data Governance</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience -->
+  <section class="section" id="experience">
+    <h2>Professional Experience</h2>
+
+    <div class="job">
+      <h3>Data Engineer – Graduate Assistant</h3>
+      <p class="company">Pontificia Universidad Javeriana • Sep 2023 – Jul 2025</p>
+      <ul>
+        <li>Designed and implemented Python-based ETL pipelines for academic data processing.</li>
+        <li>Built scalable data architectures and interactive Power BI dashboards.</li>
+        <li>Automated data ingestion using Azure Data Factory and Microsoft Fabric.</li>
+      </ul>
+      <p class="achievement">✅ Increased data processing efficiency and enabled data-driven decisions for academic committees.</p>
+    </div>
+
+    <div class="job">
+      <h3>Software Engineer & Security Lead</h3>
+      <p class="company">Heinsohn Business Technology S.A. • Aug 2021 – Oct 2023</p>
+      <ul>
+        <li>Implemented secure integration architecture using Keycloak and Oracle OSB.</li>
+        <li>Built real-time data microservices with Kafka and Java REST APIs.</li>
+        <li>Managed Docker/Kubernetes deployments on AWS with GitLab CI/CD.</li>
+      </ul>
+      <p class="achievement">✅ Delivered secure, scalable enterprise solutions with 99.95% uptime.</p>
+    </div>
+
+    <div class="job">
+      <h3>Software Development Engineer</h3>
+      <p class="company">Gatria S.A.S • Jun 2019 – Dec 2020</p>
+      <ul>
+        <li>Developed Android data-collection apps using Java and Python.</li>
+        <li>Provisioned AWS EC2 instances and configured Linux/RedHat VMs.</li>
+        <li>Automated migration from MySQL to PostgreSQL.</li>
+      </ul>
+      <p class="achievement">✅ Published 2 native Android apps; streamlined database operations.</p>
+    </div>
+  </section>
+
+  <!-- Education -->
+  <section class="section" id="education">
+    <h2>Education</h2>
+    <div class="edu">
+      <h3>Master’s in Information Engineering</h3>
+      <p>Pontificia Universidad Javeriana • 2021–2025</p>
+    </div>
+    <div class="edu">
+      <h3>Specialist in Strategic Project Management</h3>
+      <p>UPTC • 2018</p>
+    </div>
+    <div class="edu">
+      <h3>Bachelor’s in Electronic Engineering</h3>
+      <p>UPTC • 2007–2016</p>
+    </div>
+  </section>
+
+  <!-- Certifications -->
+  <section class="section" id="certifications">
+    <h2>Certifications & Courses</h2>
+    <div class="certs-grid">
+      <div class="cert">Microsoft Azure AI Fundamentals (AI-900)</div>
+      <div class="cert">Scrum Foundation Professional (CertiProf)</div>
+      <div class="cert">NVIDIA: Transformer-Based NLP</div>
+      <div class="cert">IELTS Academic (2025)</div>
+      <div class="cert">DevOps Foundation – Microsoft</div>
+      <div class="cert">Fundamentals of Deep Learning – NVIDIA</div>
+      <div class="cert">Data Analytics – Correlation One</div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="section" id="contact">
+    <h2>Let’s Connect</h2>
+    <p>I’m open to roles in data engineering, DevOps, and MLOps—remote or hybrid.</p>
+    <div class="contact-links">
+      <p>📧 <a href="mailto:al.araque@javeriana.edu.co">al.araque@javeriana.edu.co</a></p>
+      <p>📱 <a href="https://wa.me/573124000114">+57 312 400 0114</a></p>
+      <p>📍 Bogotá, Colombia</p>
+      <p>
+        <a href="https://linkedin.com/in/juanferayala" target="_blank" rel="noopener">LinkedIn</a> •
+        <a href="https://github.com/jferayala" target="_blank" rel="noopener">GitHub</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Juan Fernando Ayala Martínez. Built with HTML, CSS, and CI/CD.</p>
+  </footer>
+
+  <!-- JavaScript integrado (sin localStorage) -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const toggle = document.getElementById('theme-toggle');
+      const body = document.body;
+
+      // Detectar preferencia del sistema
+      const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (prefersDark) {
+        body.setAttribute('data-theme', 'dark');
+        toggle.textContent = '☀️';
+      }
+
+      toggle.addEventListener('click', () => {
+        const isDark = body.getAttribute('data-theme') === 'dark';
+        if (isDark) {
+          body.removeAttribute('data-theme');
+          toggle.textContent = '🌙';
+        } else {
+          body.setAttribute('data-theme', 'dark');
+          toggle.textContent = '☀️';
+        }
+      });
+
+      // Smooth scroll
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            window.scrollTo({
+              top: target.offsetTop - 80,
+              behavior: 'smooth'
+            });
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
