@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
   <meta name="description" content="Andres Leonardo Araque Mojica – Data Engineer & DevOps Engineer based in Bogotá, Colombia.">
   <title>Andres Leonardo Araque Mojica | Data & DevOps Engineer</title>
   <style>
@@ -88,7 +89,7 @@
     }
 
     .hero {
-      min-height: 80vh;
+      min-height: 10vh;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -137,24 +138,28 @@
     }
 
     .section {
-      padding: 4rem 5%;
-      max-width: 900px;
+      padding: 2rem 5% 1rem;
+      max-width: 1000px;
       margin: 0 auto;
     }
 
+    .section + .section {
+      margin-top: 1cm;
+    }
+
     .section h2 {
-      margin-bottom: 2rem;
-      font-size: 1.8rem;
+      margin-bottom: 1.25rem;
+      font-size: 1.75rem;
       position: relative;
     }
 
     .section h2::after {
       content: '';
       display: block;
-      width: 50px;
+      width: 38px;
       height: 3px;
       background: var(--accent);
-      margin-top: 0.5rem;
+      margin-top: 0.35rem;
     }
 
     .job, .edu {
@@ -228,6 +233,145 @@
         font-size: 2rem;
       }
     }
+
+.section-heading {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 2.5rem;
+}
+
+.section-heading .eyebrow {
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  color: #999;
+}
+
+.section-heading .lead {
+  color: #444;
+  font-size: 1rem;
+}
+
+.carousel-wrapper {
+  position: relative;
+}
+
+.carousel-track {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.carousel-item {
+  opacity: 0.3;
+  transform: scale(0.96);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.carousel-item.active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.carousel-item iframe {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 1rem;
+  border: none;
+  background: #000;
+}
+
+.video-meta {
+  margin-top: 1rem;
+  color: #222;
+}
+
+.carousel-control {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  width: 48px;
+  height: 48px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  border-radius: 999px;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
+}
+
+.carousel-control.prev {
+  left: -12px;
+}
+
+.carousel-control.next {
+  right: -12px;
+}
+
+.project-blog .blog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.blog-card {
+  background: #fff;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.12);
+  display: flex;
+  flex-direction: column;
+}
+
+.blog-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.blog-card__body {
+  padding: 1.25rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.blog-card__body .tag {
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #607d8b;
+  margin-bottom: 0.75rem;
+}
+
+.blog-card__body h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.25rem;
+  color: #121212;
+}
+
+.blog-card__body p {
+  margin: 0 0 1.25rem;
+  color: #414141;
+  flex: 1;
+}
+
+.link-button {
+  align-self: flex-start;
+  padding: 0.65rem 1.2rem;
+  border-radius: 999px;
+  border: 1px solid #121212;
+  color: #121212;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.link-button:hover {
+  background: #121212;
+  color: #fff;
+}
+
   </style>
 </head>
 <body>
@@ -242,6 +386,8 @@
       <li><a href="#experience">Experience</a></li>
       <li><a href="#education">Education</a></li>
       <li><a href="#certifications">Certifications</a></li>
+      <li><a href="#blog">Blog</a></li>
+      <li><a href="#videos">Videos</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </header>
@@ -361,11 +507,93 @@
       <p>contact: <a href="https://wa.me/573124000114">+57 312 403 3960</a></p>
       <p>location: Bogotá, Colombia</p>
       <p>
-        <a href="www.linkedin.com/in/andreslaraque" target="_blank" rel="noopener">LinkedIn</a> •
+        <a href="https://www.linkedin.com/in/andreslaraque" target="_blank" rel="noopener">LinkedIn</a> •
         <a href="https://github.com/AndresLAraque" target="_blank" rel="noopener">GitHub</a>
       </p>
     </div>
   </section>
+
+  <section class="section project-blog" id="blog">
+    <div class="section-heading">
+      <p class="eyebrow">Proyectos recientes</p>
+      <h2>Blog profesional</h2>
+      <p class="lead">Documentamos cada entrega con imágenes de alta calidad y descripciones ejecutivas.</p>
+    </div>
+    <div class="blog-grid">
+      <article class="blog-card">
+        <img src="ruta/a/imagen1.jpg" alt="Proyecto 1">
+        <div class="blog-card__body">
+          <p class="tag">UX/UI</p>
+          <h3>Interfaz corporativa</h3>
+          <p>Proyecto para una marca financiera: investigación, prototipado y entrega final.</p>
+          <a class="link-button" href="#proyecto-1">Ver caso</a>
+        </div>
+      </article>
+      <article class="blog-card">
+        <img src="ruta/a/imagen2.jpg" alt="Proyecto 2">
+        <div class="blog-card__body">
+          <p class="tag">Producción</p>
+          <h3>Campaña 360°</h3>
+          <p>Coordinamos fotografía, video y motion para lanzar una nueva línea premium.</p>
+          <a class="link-button" href="#proyecto-2">Ver caso</a>
+        </div>
+      </article>
+      <article class="blog-card">
+        <img src="ruta/a/imagen3.jpg" alt="Proyecto 3">
+        <div class="blog-card__body">
+          <p class="tag">Estrategia</p>
+          <h3>Posicionamiento digital</h3>
+          <p>Reestructuramos el blog y los contenidos en redes para mejorar autoridad.</p>
+          <a class="link-button" href="#proyecto-3">Ver caso</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section media-carousel" id="videos">
+  <div class="section-heading">
+    <p class="eyebrow">Contenido multimedia</p>
+    <h2>Experiencias en video</h2>
+    <p class="lead">Presentamos casos reales con narrativas limpias y narraciones concisas.</p>
+  </div>
+  <div class="carousel-wrapper">
+    <button class="carousel-control prev" aria-label="Video anterior">‹</button>
+    <div class="carousel-track">
+      <article class="carousel-item active" data-index="0">
+        <iframe
+          width="560"
+          height="315"
+          src="https://www.youtube-nocookie.com/embed/W-mkzKZAaeo"
+          title="YouTube video player"
+          frameborder="0"
+          loading="lazy"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen
+        ></iframe>
+        <div class="video-meta">
+          <h3>AutoScalingAWS</h3>
+          <p>Crea arquitecturas de alta disponibilidad.</p>
+        </div>
+      </article>
+      <article class="carousel-item" data-index="1">
+        <iframe src="https://www.youtube.com/embed/W-mkzKZAaeo" title="Proyecto 2" loading="lazy" allowfullscreen></iframe>        
+        <div class="video-meta">
+          <h3>Transformación digital</h3>
+          <p>Muestra cómo integramos soluciones de interfaz con UX cuidada.</p>
+        </div>
+      </article>
+      <article class="carousel-item" data-index="2">
+        <iframe src="https://www.youtube.com/embed/VIDEO_ID_3" title="Proyecto 3" loading="lazy" allowfullscreen></iframe>
+        <div class="video-meta">
+          <h3>Impacto visual</h3>
+          <p>Destaca la calidad visual y narrativa que entregamos en campañas premium.</p>
+        </div>
+      </article>
+    </div>
+    <button class="carousel-control next" aria-label="Siguiente video">›</button>
+  </div>
+</section>
 
   <!-- Footer -->
   <footer>
@@ -409,7 +637,31 @@
           }
         });
       });
+
+      const track = document.querySelector('.carousel-track');
+      const items = track?.querySelectorAll('.carousel-item');
+      const prevBtn = document.querySelector('.carousel-control.prev');
+      const nextBtn = document.querySelector('.carousel-control.next');
+      let index = 0;
+
+      const updateActive = () => {
+        items?.forEach((item, idx) => {
+          item.classList.toggle('active', idx === index);
+        });
+      };
+
+      const move = (direction) => {
+        if (!items) return;
+        index = (index + direction + items.length) % items.length;
+        updateActive();
+        items[index].scrollIntoView({ behavior: 'smooth', inline: 'center' });
+      };
+
+      prevBtn?.addEventListener('click', () => move(-1));
+      nextBtn?.addEventListener('click', () => move(1));
+      updateActive();
     });
   </script>
 </body>
+
 </html>
